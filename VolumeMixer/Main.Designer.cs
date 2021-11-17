@@ -29,7 +29,14 @@ namespace VolumeMixer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.notify = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
+            // 
+            // notify
+            // 
+            this.notify.Text = "notifyIcon1";
+            this.notify.Visible = true;
             // 
             // Main
             // 
@@ -41,6 +48,8 @@ namespace VolumeMixer
             this.MaximumSize = new System.Drawing.Size(475, 558);
             this.MinimumSize = new System.Drawing.Size(475, 558);
             this.Name = "Main";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VolumeMixer [Shift: Up - Ctrl: Down - S: Show/Hide]";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
@@ -49,6 +58,8 @@ namespace VolumeMixer
         }
 
         #endregion
+
+        private System.Windows.Forms.NotifyIcon notify;
     }
 }
 

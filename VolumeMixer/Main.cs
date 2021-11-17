@@ -22,6 +22,12 @@ namespace VolumeMixer
             InitializeComponent();
             MainMgr.LoadAllData(this, kh);
             kh.KeyDown += Kh_KeyDown;
+            notify.Icon =
+   new System.Drawing.Icon(Application.StartupPath
+   + @"\icon.ico");
+            notify.Visible = true;
+            notify.Text = this.Text;
+
         }
         private void Kh_KeyDown(Keys key, bool Shift, bool Ctrl, bool Alt)
         {

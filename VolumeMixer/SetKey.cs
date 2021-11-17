@@ -40,7 +40,7 @@ namespace VolumeMixer
                 Application.Exit();
             }
             else
-            {
+            {   
                 MessageBox.Show("Invalid, pls try again","Error");
             }
         }

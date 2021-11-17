@@ -77,6 +77,8 @@ namespace VolumeMixer
             this.MaximumSize = new System.Drawing.Size(323, 262);
             this.MinimumSize = new System.Drawing.Size(323, 262);
             this.Name = "SetKey";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SetKey";
             this.ResumeLayout(false);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace VolumeMixer
             lblKey.Text = "KeyPress {" + key + "}";
             this.Key = key;
         }
-
+       
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (ProcessMgr.CheckKey(this.Key.ToString()))
@@ -35,9 +36,8 @@ namespace VolumeMixer
                 RootObject obj = ProcessMgr.GetRow(this.baseAdress);
                 obj.ProcessData.Key = this.Key.ToString();
                 ProcessMgr.UpdateRow(baseAdress, obj.ProcessData);
-                Main mn = new Main();
-                mn.Show();
-                this.Hide();
+                System.Diagnostics.Process.Start(Application.ExecutablePath);
+                Application.Exit();
             }
             else
             {

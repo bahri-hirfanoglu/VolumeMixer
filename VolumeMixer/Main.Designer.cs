@@ -35,10 +35,15 @@ namespace VolumeMixer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 519);
+            this.ClientSize = new System.Drawing.Size(459, 519);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(475, 558);
+            this.MinimumSize = new System.Drawing.Size(475, 558);
             this.Name = "Main";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "VolumeMixer [Shift: Up - Ctrl: Down - S: Show/Hide]";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.ResumeLayout(false);
 
         }

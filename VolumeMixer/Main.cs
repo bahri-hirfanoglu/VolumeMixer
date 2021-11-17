@@ -37,8 +37,10 @@ namespace VolumeMixer
                         if (master_volume < 100)
                         {
                             master_volume += 1;
-                            AudioMixer.SetApplicationVolume(session.Process.Id, (master_volume));
+                            AudioMixer.SetApplicationVolume(session.Process.Id, master_volume);
+                            UpdateTool(obj.ProcessData.BaseAdress, obj.ProcessData.Name, master_volume);
                         }
+                       
                     }
                     else if (Ctrl)
                     {
@@ -46,17 +48,36 @@ namespace VolumeMixer
                         {
                             master_volume -= 1;
                             AudioMixer.SetApplicationVolume(session.Process.Id, (master_volume));
+                            UpdateTool(obj.ProcessData.BaseAdress, obj.ProcessData.Name, master_volume);
                         }
                     }
-                    ToolBoxList tool = ToolMgr.GetRow(obj.ProcessData.BaseAdress, obj.ProcessData.Name);
-                    if(tool != null)
-                    {
-                        tool.progressBar.Value = (int)master_volume;
-                        tool.label.Text = "%" + ((int)master_volume);
-                    }
+                   
+                }
+            }
+            if (key == Keys.S && Alt)
+            {
+                if (this.Visible)
+                {
+                    this.Hide();
+                }
+                else
+                {
+                    this.Show();
                 }
             }
         }
-
+        void UpdateTool(string BaseAdress, string Name, float master_volume)
+        {
+            ToolBoxList tool = ToolMgr.GetRow(BaseAdress,Name);
+            if (tool != null)
+            {
+                tool.progressBar.Value = (int)master_volume;
+                tool.label.Text = "%" + (int)master_volume;
+            }
+        }
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
